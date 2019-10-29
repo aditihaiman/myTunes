@@ -1,22 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "string.h"
 #include "linkedlist.h"
 
 
 void print_list(struct song_node *current) {
         printf("[");
         while(current != NULL) {
-            printf("%s: %s", current->artist, current->name);
+            printf("%s - %s", current->artist, current->name);
             current = current->next;
-            if(current!=NULL) printf(",");
+            if(current!=NULL) printf(", ");
         }
         printf("]\n");
 }
 
 struct song_node * createNode(char newname[], char newartist[]){
     struct song_node *new = (struct song_node*)malloc(sizeof(struct song_node));
-    new->name = newname;
-    new->artist = newartist;
+    for(int x = 0; x < strlen(newname); x++){
+        new->name[x] = newname[x];
+    }
+    for(int x = 0; x < strlen(newartist); x++){
+        new->artist[x] = newartist[x];
+    }
     new->next = NULL;
     return new;
 }
@@ -31,7 +36,7 @@ struct song_node * remove_val(struct song_node *front, int data){
     struct song_node *current = front;
     struct song_node *prev = current;
     while(current != NULL){
-        if(current->i == data){
+        if(current->name == data){
             if(current == front) front = front->next;
             else prev->next = current->next;
             free(current);
