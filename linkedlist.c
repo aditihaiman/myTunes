@@ -13,7 +13,7 @@ void print_list(struct song_node *current) {
         printf("]\n");
 }
 
-struct song_node * createNode(char[] newname, char[] newartist){
+struct song_node * createNode(char newname[], char newartist[]){
     struct song_node *new = (struct song_node*)malloc(sizeof(struct song_node));
     new->name = newname;
     new->artist = newartist;
@@ -21,7 +21,7 @@ struct song_node * createNode(char[] newname, char[] newartist){
     return new;
 }
 
-struct song_node * insert_front(struct song_node *front, char[] newname, char[] newartist){
+struct song_node * insert_front(struct song_node *front, char newname[], char newartist[]){
     struct song_node *new = createNode(newname, newartist);
     new->next = front;
     return new;
@@ -47,7 +47,7 @@ struct song_node * remove_val(struct song_node *front, int data){
 struct song_node * free_list(struct song_node *current) {
     struct song_node* prev;
     while(current != NULL) {
-        printf("freeing: %d\n", current->i);
+        printf("freeing: %d\n", current->name);
         prev = current;
         current = current->next;
         free(prev);
@@ -57,11 +57,11 @@ struct song_node * free_list(struct song_node *current) {
 }
 
 
-struct song_node * findNode(char[] nme, char[] artst){
+struct song_node * findNode(char nme[], char artst[]){
     
 }
 
-struct song_node * findFirstNode(char[] artst){
+struct song_node * findFirstNode(char artst[]){
     
 }
 
@@ -69,7 +69,7 @@ struct song_node * randomNode(){
     
 }
 
-struct song_node * insertAlphabetical(struct song_node *front, char[] newname, char[] newartist){
+struct song_node * insertAlphabetical(struct song_node *front, char newname[], char newartist[]){
     
 }
 
