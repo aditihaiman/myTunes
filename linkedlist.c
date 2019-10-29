@@ -4,7 +4,7 @@
 #include "linkedlist.h"
 
 
-void print_list(struct song_node *current) {
+void print_list(struct song_node *current) { //DONE
         printf("[");
         while(current != NULL) {
             printf("%s - %s", current->artist, current->name);
@@ -14,7 +14,7 @@ void print_list(struct song_node *current) {
         printf("]\n");
 }
 
-struct song_node * createNode(char newname[], char newartist[]){
+struct song_node * createNode(char newname[], char newartist[]){ //DONE
     struct song_node *new = (struct song_node*)malloc(sizeof(struct song_node));
     for(int x = 0; x < strlen(newname); x++){
         new->name[x] = newname[x];
@@ -26,7 +26,7 @@ struct song_node * createNode(char newname[], char newartist[]){
     return new;
 }
 
-struct song_node * insert_front(struct song_node *front, char newname[], char newartist[]){
+struct song_node * insert_front(struct song_node *front, char newname[], char newartist[]){ //DONE
     struct song_node *new = createNode(newname, newartist);
     new->next = front;
     return new;
@@ -62,8 +62,13 @@ struct song_node * free_list(struct song_node *current) {
 }
 
 
-struct song_node * findNode(char nme[], char artst[]){
-    
+struct song_node * findNode(struct song_node *list, char nme[], char artst[]){ //DONE
+    while(list != NULL) {
+        if (strcmp(list->name, nme) == 0) return list;
+        list = list->next;
+    }
+    printf("node not found\n");
+    return NULL;
 }
 
 struct song_node * findFirstNode(char artst[]){
