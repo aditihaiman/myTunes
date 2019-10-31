@@ -37,22 +37,19 @@ struct song_node * remove_val(struct song_node *list, char nme[], char artst[]){
     struct song_node *current = list;
     struct song_node *prev = current;
     while(current != NULL){
-      if(current->artist == artst){
-	
-	if (current->name == nme){
-	  if(current == list){
-	    list = list->next;
-	    free(current);
-	    return list;
-	  }
-	  prev->next = current->next;
-	  free(current);
-	  current = NULL;
-	}
-	
-	prev = current;
-	current = current->next;
-      }
+        if(strcmp(artst, current->artist) == 0 && strcmp(nme, current->name) == 0){
+            if(current == list){
+                list = list->next;
+                free(current);
+                return list;
+            }
+            prev->next = current->next;
+            free(current);
+            current = NULL;
+            return list;
+        }
+        prev = current;
+        current = current->next;
     }
     return list;
 }
@@ -60,7 +57,7 @@ struct song_node * remove_val(struct song_node *list, char nme[], char artst[]){
 struct song_node * free_list(struct song_node *current) {
     struct song_node* prev;
     while(current != NULL) {
-        printf("freeing: %d\n", current->name);
+        printf("freeing: %s\n", current->name);
         prev = current;
         current = current->next;
         free(prev);

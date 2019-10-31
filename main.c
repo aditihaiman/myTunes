@@ -8,9 +8,9 @@ int main(){
     struct song_node *list = NULL;
     printf("TESTING LINKEDLIST\n");
     
-    printf("===========================================================\n");
+    printf("\n===========================================================\n");
     
-    printf("Testing empty print_list:\n");
+    printf("\nTesting empty print_list:\n\n");
     print_list(list);
     printf("Testing print_list with insert_front:\n");
     char name[100] = "penny lane";
@@ -28,9 +28,9 @@ int main(){
     list = insert_front(list, name, artist);
     print_list(list);
     
-    printf("===========================================================\n");
+    printf("\n===========================================================\n");
     
-    printf("Testing findNode:\n");
+    printf("\nTesting findNode:\n\n");
     struct song_node *find = NULL;
     strcpy(artist, "the beatles");
     strcpy(name, "penny lane");
@@ -45,9 +45,9 @@ int main(){
     strcpy(name, "back in the ussr");
     find = findNode(list, name, artist);
     
-    printf("===========================================================\n");
+    printf("\n===========================================================\n");
     
-    printf("Testing find first node by artist:\n");
+    printf("\nTesting find first node by artist:\n\n");
     printf("looking for [the beatles]:\n");
     find = findFirstNode(list, artist);
     printf("%s - %s\n", find->artist, find->name);
@@ -57,15 +57,58 @@ int main(){
     printf("%s - %s\n", find->artist, find->name);
 
 
-    printf("===========================================================\n");
+    printf("\n===========================================================\n");
 
-    printf("Testing insert alphabetical:\n");
+    printf("\nTesting remove by value:\n\n");
+    printf("Removing from front [queen - killer queen]: \n");
+    strcpy(artist, "queen");
+    strcpy(name, "killer queen");
+    list = remove_val(list, name, artist);
+    print_list(list);
+    printf("Removing from middle [the beatles - rocky raccoon]: \n");
+    strcpy(artist, "the beatles");
+    strcpy(name, "rocky raccoon");
+    list = remove_val(list, name, artist);
+    print_list(list);
+    printf("Removing from end [the beatles - penny lane]: \n");
+    strcpy(artist, "the beatles");
+    strcpy(name, "penny lane");
+    list = remove_val(list, name, artist);
+    print_list(list);
+    printf("Removing all values: \n");
+    strcpy(artist, "the beatles");
+    strcpy(name, "hey jude");
+    remove_val(list, name, artist);
+    strcpy(artist, "abba");
+    strcpy(name, "fernando");
+    remove_val(list, name, artist);
+    print_list(list);
+    list = NULL;
+    
+    printf("\n===========================================================\n");
+
+    printf("\nTesting insert alphabetical:\n\n");
+    printf("Inserting [the beatles - hello goodbye]:\n");
     strcpy(artist, "the beatles");
     strcpy(name, "hello, goodbye");
-    struct song_node *current = list;
-    print_list(current);
-    current = insertAlphabetical(current, name, artist);
-    print_list(current);
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
+    printf("\nInserting [the beatles - maxwells silver hammer]:\n");
+    strcpy(artist, "the beatles");
+    strcpy(name, "maxwells silver hammer");
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
+    printf("\nInserting [elton john - tiny dancer]:\n");
+    strcpy(artist, "elton john");
+    strcpy(name, "tiny dancer");
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
 
+    
+    printf("\n===========================================================\n");
+
+    printf("\nTesting free_list:\n\n");
+    list = free_list(list);
+    print_list(list);
     
 }
