@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "string.h"
 #include "linkedlist.h"
 
@@ -80,11 +81,38 @@ struct song_node * findFirstNode(struct song_node *list, char artst[]){
         return NULL;
 }
 
-struct song_node * randomNode(){
-    
+int findLen(struct song_node *list){
+  int x = 0;
+  while (list != NULL){
+    x++;
+    list = list->next;
+  }
+  return x;
 }
 
-struct song_node * insertAlphabetical(struct song_node *front, char newname[], char newartist[]){
-    
+struct song_node * randomNode(struct song_node *list){
+  srand(time(NULL));
+  int len = findLen(list);
+  int rand = rand() % lenArtist;
+  while (rand >= 0){
+    list = list->next;
+    rand--;
+  }
+  printf("printing element %d of list:\n", rand);
+  return list;
+}
+
+
+
+struct song_node * insertAlphabetical(struct song_node *list, char newname[], char newartist[]){
+  while (list != NULL){
+    if (strcmp(newartist, list->artist) == 0){
+      while (strcmp(newname, list->name) > 0)
+	list = list->next;
+      
+    while (strcmp(newartist, list->artist) > 0)
+      list = list->next;
+      
+ insert_front(list, newname, newartist);
 }
 
