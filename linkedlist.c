@@ -33,21 +33,28 @@ struct song_node * insert_front(struct song_node *front, char newname[], char ne
     return new;
 }
 
-struct song_node * remove_val(struct song_node *front, int data){
-    struct song_node *current = front;
+struct song_node * remove_val(struct song_node *list, char nme[], char artst[]){
+    struct song_node *current = list;
     struct song_node *prev = current;
     while(current != NULL){
-        if(current->name == data){
-            if(current == front) front = front->next;
-            else prev->next = current->next;
-            free(current);
-            current = NULL;
-            return front;
-        }
-        prev = current;
-        current = current->next;
+      if(current->artist == artst){
+	
+	if (current->name == nme){
+	  if(current == list){
+	    list = list->next;
+	    free(current);
+	    return list;
+	  }
+	  prev->next = current->next;
+	  free(current);
+	  current = NULL;
+	}
+	
+	prev = current;
+	current = current->next;
+      }
     }
-    return front;
+    return list;
 }
 
 struct song_node * free_list(struct song_node *current) {
@@ -105,7 +112,7 @@ struct song_node * randomNode(struct song_node *list){
 
 
 struct song_node * insertAlphabetical(struct song_node *list, char newname[], char newartist[]){
-    if(list == NULL) return insert_front(list, newname, newartist);
+    if (list == NULL) return insert_front(list, newname, newartist);
     struct song_node *current = list;
     while (current->next != NULL && (strcmp(newartist, current->next->artist) > 0)){
         current = current->next;
