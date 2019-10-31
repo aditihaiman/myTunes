@@ -78,10 +78,10 @@ int main(){
     printf("Removing all values: \n");
     strcpy(artist, "the beatles");
     strcpy(name, "hey jude");
-    remove_val(list, name, artist);
+    list = remove_val(list, name, artist);
     strcpy(artist, "abba");
     strcpy(name, "fernando");
-    remove_val(list, name, artist);
+    list = remove_val(list, name, artist);
     print_list(list);
     list = NULL;
     
