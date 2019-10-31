@@ -86,24 +86,31 @@ struct song_node * findFirstNode(struct song_node *list, char artst[]){
 }
 
 int findLen(struct song_node *list){
-  int x = 0;
-  while (list != NULL){
-    x++;
-    list = list->next;
-  }
-  return x;
+    struct song_node *current = list;
+    int x = 0;
+    while (current != NULL){
+        x++;
+        current = current->next;
+    }
+    return x;
 }
 
 struct song_node * randomNode(struct song_node *list){
-//  srand(time(NULL));
-//  int len = findLen(list);
-//  int rand = rand() % lenArtist;
-//  while (rand >= 0){
-//    list = list->next;
-//    rand--;
-//  }
-//  printf("printing element %d of list:\n", rand);
-//  return list;
+    if(list==NULL) {
+        printf("list is empty\n");
+        return NULL;
+    }
+    srand(time(NULL));
+    int len = findLen(list);
+    int random = rand() % len;
+    printf("%d\n", random);
+
+    while (random >= 0){
+        list = list->next;
+        random--;
+    }
+    printf("printing element %d of list:\n", random);
+    return list;
 }
 
 

@@ -104,11 +104,21 @@ int main(){
     list = insertAlphabetical(list, name, artist);
     print_list(list);
 
+    printf("\n===========================================================\n");
+
+    printf("\nTesting random node:\n\n");
+    print_list(randomNode(list));
+    print_list(randomNode(list));
+    print_list(randomNode(list));
     
     printf("\n===========================================================\n");
 
     printf("\nTesting free_list:\n\n");
     list = free_list(list);
     print_list(list);
+    
+    
+
+
     
 }
