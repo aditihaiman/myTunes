@@ -62,9 +62,10 @@ int main(){
     printf("Testing insert alphabetical:\n");
     strcpy(artist, "the beatles");
     strcpy(name, "hello, goodbye");
-    print_list(list);
-    list = insertAlphabetical(list, name, artist);
-    print_list(list);
+    struct song_node *current = list;
+    print_list(current);
+    current = insertAlphabetical(current, name, artist);
+    print_list(current);
 
     
 }
