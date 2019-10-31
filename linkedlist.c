@@ -74,7 +74,7 @@ struct song_node * findNode(struct song_node *list, char nme[], char artst[]){ /
 
 struct song_node * findFirstNode(struct song_node *list, char artst[]){
     while(list != NULL) {
-            if (strcmp(list->name, nme) == 0) return list;
+            if (strcmp(list->artist, artst) == 0) return list;
             list = list->next;
         }
         printf("node not found\n");
@@ -91,28 +91,31 @@ int findLen(struct song_node *list){
 }
 
 struct song_node * randomNode(struct song_node *list){
-  srand(time(NULL));
-  int len = findLen(list);
-  int rand = rand() % lenArtist;
-  while (rand >= 0){
-    list = list->next;
-    rand--;
-  }
-  printf("printing element %d of list:\n", rand);
-  return list;
+//  srand(time(NULL));
+//  int len = findLen(list);
+//  int rand = rand() % lenArtist;
+//  while (rand >= 0){
+//    list = list->next;
+//    rand--;
+//  }
+//  printf("printing element %d of list:\n", rand);
+//  return list;
 }
 
 
 
 struct song_node * insertAlphabetical(struct song_node *list, char newname[], char newartist[]){
-  while (list != NULL){
-    if (strcmp(newartist, list->artist) == 0){
-      while (strcmp(newname, list->name) > 0)
-	list = list->next;
-      
-    while (strcmp(newartist, list->artist) > 0)
-      list = list->next;
-      
- insert_front(list, newname, newartist);
+//    while (list != NULL){
+        while (strcmp(newartist, list->artist) > 0){
+            list = list->next;
+        }
+        if (strcmp(newartist, list->artist) == 0){
+            while (strcmp(newname, list->name) > 0){
+                list = list->next;
+            }
+        }
+    //}
+    list = insert_front(list, newname, newartist);
+    return list;
 }
 

@@ -57,6 +57,14 @@ int main(){
     printf("%s - %s\n", find->artist, find->name);
 
 
+    printf("===========================================================\n");
+
+    printf("Testing insert alphabetical:\n");
+    strcpy(artist, "the beatles");
+    strcpy(name, "hello, goodbye");
+    print_list(list);
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
 
     
 }
