@@ -107,9 +107,13 @@ int main(){
     printf("\n===========================================================\n");
 
     printf("\nTesting random node:\n\n");
-    print_list(randomNode(list));
-    print_list(randomNode(list));
-    print_list(randomNode(list));
+    struct song_node *randNode = NULL;
+    randNode = (randomNode(list));
+    printf("%s - %s\n", randNode->artist, randNode->name);
+    randNode = (randomNode(list));
+    printf("%s - %s\n", randNode->artist, randNode->name);
+    randNode = (randomNode(list));
+    printf("%s - %s\n", randNode->artist, randNode->name);
     
     printf("\n===========================================================\n");
 
