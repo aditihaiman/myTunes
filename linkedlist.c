@@ -116,24 +116,21 @@ struct song_node * randomNode(struct song_node *list){
 
 struct song_node * insertAlphabetical(struct song_node *list, char newname[], char newartist[]){
     if (list == NULL) return insert_front(list, newname, newartist);
-    struct song_node *prev = list;
     struct song_node *current = list;
-    
-    while (current != NULL && (strcmp(newartist, current->artist) > 0)){
-        printf("A\n");
-	prev = current;
+    struct song_node *prev = list;
+    while(current != NULL && (strcmp(newartist, current->artist)) > 0){
+        prev = current;
         current = current->next;
     }
-    if (current != NULL && (strcmp(newartist, current->artist) == 0)){
+    if(current != NULL && (strcmp(newartist, current->artist) == 0)) {
         while (current != NULL && (strcmp(newname, current->name) > 0)){
-            printf("B\n");
-	    prev = current;
+            prev = current;
             current = current->next;
         }
     }
-    struct song_node *new = createNode(newname, newartist);
-    new->next = current;
-    prev->next = new;
+    //struct song_node *new = createNode(newname, newartist);
+    current = insert_front(current, newname, newartist);
+    prev->next = current;
     return list;
 }
 
