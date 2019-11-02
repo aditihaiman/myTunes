@@ -1,8 +1,13 @@
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 struct song_node{
   char name[100];
   char artist[100];
   struct song_node *next;
 };
+
+#endif
 
 
 void print_list(struct song_node *current);

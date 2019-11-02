@@ -120,10 +120,7 @@ int main(){
     struct song_node *randNode = NULL;
     randNode = (randomNode(list));
     printf("%s - %s\n", randNode->artist, randNode->name);
-    randNode = (randomNode(list));
-    printf("%s - %s\n", randNode->artist, randNode->name);
-    randNode = (randomNode(list));
-    printf("%s - %s\n", randNode->artist, randNode->name);
+
     
     printf("\n===========================================================\n");
 
@@ -132,7 +129,17 @@ int main(){
     print_list(list);
     
     
+    printf("\n===========================================================\n");
 
-
+    printf("TESTING MUSIC LIBRARY\n");
+    
+    printf("\n===========================================================\n");
+    
+    strcpy(artist, "abba");
+    strcpy(name, "fernando");
+    
+    struct song_node * library[27];
+    struct song_node *new = createNode(name, artist);
+    addSong(new, library);
     
 }
