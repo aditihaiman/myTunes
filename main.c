@@ -135,11 +135,30 @@ int main(){
     
     printf("\n===========================================================\n");
     
-    strcpy(artist, "abba");
-    strcpy(name, "fernando");
+    printf("\nTesting printLibrary:\n\n");
+
     
     struct song_node * library[27];
+    for(int x = 0; x < 27; x++){
+        library[x] = NULL;
+    }
     struct song_node *new = createNode(name, artist);
     addSong(new, library);
+    strcpy(artist, "billy joel");
+    strcpy(name, "uptown girl");
+    new = createNode(name, artist);
+    addSong(new, library);
+    strcpy(artist, "david bowie");
+    strcpy(name, "starman");
+    new = createNode(name, artist);
+    addSong(new, library);
+    strcpy(artist, "billy joel");
+    strcpy(name, "vienna");
+    new = createNode(name, artist);
+    addSong(new, library);
+    printLibrary(library);
+    
+    printf("\n");
+    printLetter(library, 'b');
     
 }
