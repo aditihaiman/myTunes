@@ -128,7 +128,7 @@ struct song_node * insertAlphabetical(struct song_node *list, char newname[], ch
             current = current->next;
         }
     }
-    //struct song_node *new = createNode(newname, newartist);
+    if (current == list) return insert_front(current, newname, newartist);
     current = insert_front(current, newname, newartist);
     prev->next = current;
     return list;

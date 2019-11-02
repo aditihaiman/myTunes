@@ -103,6 +103,16 @@ int main(){
     strcpy(name, "tiny dancer");
     list = insertAlphabetical(list, name, artist);
     print_list(list);
+    printf("\nInserting [queen - killer queen]:\n");
+    strcpy(artist, "queen");
+    strcpy(name, "killer queen");
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
+    printf("\nInserting [the temptations - my girl]:\n");
+    strcpy(artist, "the temptations");
+    strcpy(name, "my girl");
+    list = insertAlphabetical(list, name, artist);
+    print_list(list);
 
     printf("\n===========================================================\n");
 
