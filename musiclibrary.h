@@ -8,3 +8,5 @@ void printLibrary(struct song_node * library[27]);
 struct song_node * findSong(struct song_node * library[27], char nme[], char artst[]);
 struct song_node * findArtist(struct song_node * library[27], char artst[]);
 void deleteSong(struct song_node * library[27], char nme[], char artst[]);
+void shuffle(struct song_node * library[27]);
+void clear(struct song_node * library[27]);

@@ -47,3 +47,12 @@ struct song_node * findArtist(struct song_node * library[27], char artst[]){
     return findFirstNode(first, artst);
 }
 
+void shuffle(struct song_node * library[27]){
+    
+}
+
+void clear(struct song_node * library[27]){
+    for(int x = 0; x < 27; x++){
+        library[x] = free_list(library[x]);
+    }
+}

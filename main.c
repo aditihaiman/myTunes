@@ -90,7 +90,7 @@ int main(){
     printf("\nTesting insert alphabetical:\n\n");
     printf("Inserting [the beatles - hello goodbye]:\n");
     strcpy(artist, "the beatles");
-    strcpy(name, "hello, goodbye");
+    strcpy(name, "hello goodbye");
     list = insertAlphabetical(list, name, artist);
     print_list(list);
     printf("\nInserting [the beatles - maxwells silver hammer]:\n");
@@ -186,7 +186,7 @@ int main(){
     printf("looking for [billy joel - uptown girl]:\n");
     strcpy(name, "uptown girl");
     find = findSong(library, name, artist);
-    printf("%s - %s\n", find->artist, find->name);
+    //printf("%s - %s\n", find->artist, find->name);
 
     printf("\nTesting findArtist:\n\n");
     printf("looking for [david bowie]:\n");
@@ -204,6 +204,11 @@ int main(){
     printArtist(library, artist);
 
     
+    printf("\nTesting shuffle:\n\n");
+    //shuffle(library);
     
+    printf("\nClearing Library:\n\n");
+    clear(library);
+    printLibrary(library);
     
 }
