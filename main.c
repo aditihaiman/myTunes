@@ -158,7 +158,27 @@ int main(){
     addSong(new, library);
     printLibrary(library);
     
-    printf("\n");
+    printf("\nTesting printLetter:\n\n");
     printLetter(library, 'b');
+    printLetter(library, 'd');
+    printLetter(library, 't');
+
+    printf("\nTesting deleteSong:\n\n");
+    printf("deleting [billy joel - vienna]:\n");
+    strcpy(artist, "billy joel");
+    strcpy(name, "vienna");
+    new = createNode(name, artist);
+    find = deleteSong(library, new->name, new->artist);
+    printf("deleted %s - %s\n", find->artist, find->name);
+    
+    printf("\nTesting findSong:\n\n");
+    printf("looking for [billy joel - vienna]:\n");
+    strcpy(artist, "billy joel");
+    strcpy(name, "vienna");
+    new = createNode(name, artist);
+    find = findSong(library, new->name, new->artist);
+    printf("%s - %s\n", find->artist, find->name);
+
+    
     
 }
