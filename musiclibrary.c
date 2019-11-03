@@ -19,6 +19,7 @@ void printLibrary(struct song_node * library[27]) {
     }
 }
 
+//NOT DONE
 struct song_node * findSong(struct song_node * library[27], char nme[], char artst[]){
   for (int x = 0; x < 27; x++){
     printf("A\n");
@@ -33,6 +34,7 @@ struct song_node * findSong(struct song_node * library[27], char nme[], char art
   return NULL;
 }
 
+//NOT DONE
 struct song_node * deleteSong(struct song_node * library[27], char nme[], char artst[]){
   int next = 0;
   for (int x = 0; x < 27; x++){
