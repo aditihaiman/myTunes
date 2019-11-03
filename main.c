@@ -156,6 +156,14 @@ int main(){
     strcpy(name, "vienna");
     new = createNode(name, artist);
     addSong(new, library);
+    strcpy(artist, "david bowie");
+    strcpy(name, "suffragete city");
+    new = createNode(name, artist);
+    addSong(new, library);
+    strcpy(artist, "david byrne");
+    strcpy(name, "who");
+    new = createNode(name, artist);
+    addSong(new, library);
     printLibrary(library);
     
     printf("\nTesting printLetter:\n\n");
@@ -180,6 +188,22 @@ int main(){
     find = findSong(library, name, artist);
     printf("%s - %s\n", find->artist, find->name);
 
+    printf("\nTesting findArtist:\n\n");
+    printf("looking for [david bowie]:\n");
+    strcpy(artist, "david bowie");
+    find = findArtist(library, artist);
+    print_list(find);
+    strcpy(artist, "billy joel");
+    printf("looking for [billy joel]:\n");
+    find = findArtist(library, artist);
+    print_list(find);
+    
+    printf("\nTesting printArtist:\n\n");
+    printArtist(library, artist);
+    strcpy(artist, "david bowie");
+    printArtist(library, artist);
+
+    
     
     
 }
