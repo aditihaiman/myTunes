@@ -103,10 +103,9 @@ struct song_node * randomNode(struct song_node *list){
         printf("list is empty\n");
         return NULL;
     }
-    srand(time(NULL));
     int len = findLen(list);
     int random = rand() % len;
-    printf("printing element %d of list:\n", random);
+    //printf("printing element %d of list:\n", random);
     while (random > 0){
         list = list->next;
         random--;

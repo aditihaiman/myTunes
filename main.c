@@ -120,6 +120,8 @@ int main(){
     struct song_node *randNode = NULL;
     randNode = (randomNode(list));
     printf("%s - %s\n", randNode->artist, randNode->name);
+    randNode = (randomNode(list));
+    printf("%s - %s\n", randNode->artist, randNode->name);
 
     
     printf("\n===========================================================\n");

@@ -57,35 +57,20 @@ int findSize(struct song_node * library[27]){
 
 
 void shuffle(struct song_node * library[27]){
-  int size = findSize(library);
-  struct song_node * shuffledLibrary[size];
-  srand(time(NULL));
-  
-  if (size != 0){
-    int random = rand() % size;
-    for (int x = 0; x < 27; x++){
-      while (library[x] != NULL){
-	printf("A\n");
-	struct song_node * place = randomNode(library[x]);
-	printf("B\n");
-	while (shuffledLibrary[random] != NULL){
-	  printf("C\n");
-	  srand(time(NULL));
-	  random = rand() % size;
-	}
-	printf("D\n");
-	shuffledLibrary[random] = place;
-	remove_val(library[x], place->name, place->artist);
-      }
+    int size = findSize(library);
+    struct song_node *shuffledLibrary = NULL;
+    if (size != 0){
+        for (int x = 0; x < 27; x++){
+            struct song_node *current = library[x];
+            int length = findLen(current);
+            while (length > 0){
+                struct song_node *random = randomNode(current);
+                printf("%s - %s | ", random->name, random->artist);
+                current = remove_val(current, random->name, random->artist);
+                length--;
+            }
+        }
     }
-  }
-  
-  printf("[");
-  for (int x = 0; x < size; x++){
-    printf("%s - %s", shuffledLibrary[x]->artist, shuffledLibrary[x]->name);
-    if (x != size - 2) printf(", ");
-  }
-  printf("]\n");
 }
 
 
