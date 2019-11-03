@@ -19,37 +19,20 @@ void printLibrary(struct song_node * library[27]) {
     }
 }
 
-//NOT DONE
+//DONE
 struct song_node * findSong(struct song_node * library[27], char nme[], char artst[]){
-  for (int x = 0; x < 27; x++){
-    printf("A\n");
-    struct song_node * current = library[x];
-    if (current->artist == artst && current->name == nme){
-      printf("B\n");
-      printf("song found!");
-      return current;
-    }
-  }
-  printf("song not found");
-  return NULL;
+    struct song_node *first = library[artst[0] - 97];
+    return findNode(first, nme, artst);
 }
 
-//NOT DONE
-struct song_node * deleteSong(struct song_node * library[27], char nme[], char artst[]){
-  int next = 0;
-  for (int x = 0; x < 27; x++){
-    next = x+1;
-    struct song_node * currentNode = library[x];
-    if (currentNode->artist == artst && currentNode->name == nme){
-      int current = x;
-      while (current < 27){
-	library[next++] = library[current++];
-      }
-      free(currentNode);
-      printLibrary(library);
-      return NULL;
-    }
-  }
-  printf("song not found");
-  return NULL;
+//DONE
+void deleteSong(struct song_node * library[27], char nme[], char artst[]){
+    struct song_node *first = library[artst[0] - 97];
+    first = remove_val(first, nme, artst);
 }
+
+struct song_node * findArtist(struct song_node * library[27], char artst[]){
+    struct song_node *first = library[artst[0] - 97];
+    return findFirstNode(first, artst);
+}
+
