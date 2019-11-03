@@ -205,7 +205,7 @@ int main(){
 
     
     printf("\nTesting shuffle:\n\n");
-    //shuffle(library);
+    shuffle(library);
     
     printf("\nClearing Library:\n\n");
     clear(library);

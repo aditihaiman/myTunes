@@ -3,6 +3,7 @@
 #include "musiclibrary.h"
 #include "linkedlist.h"
 #include <string.h>
+#include <time.h>
 
 void addSong(struct song_node *newsong, struct song_node * library[27]){
     int place = newsong->artist[0] - 97;
@@ -47,9 +48,46 @@ struct song_node * findArtist(struct song_node * library[27], char artst[]){
     return findFirstNode(first, artst);
 }
 
-void shuffle(struct song_node * library[27]){
-    
+int findSize(struct song_node * library[27]){
+  int size = 0;
+  for (int x = 0; x < 27; x++)
+    size += findLen(library[x]);
+  return size;
 }
+
+
+void shuffle(struct song_node * library[27]){
+  int size = findSize(library);
+  struct song_node * shuffledLibrary[size];
+  srand(time(NULL));
+  
+  if (size != 0){
+    int random = rand() % size;
+    for (int x = 0; x < 27; x++){
+      while (library[x] != NULL){
+	printf("A\n");
+	struct song_node * place = randomNode(library[x]);
+	printf("B\n");
+	while (shuffledLibrary[random] != NULL){
+	  printf("C\n");
+	  srand(time(NULL));
+	  random = rand() % size;
+	}
+	printf("D\n");
+	shuffledLibrary[random] = place;
+	remove_val(library[x], place->name, place->artist);
+      }
+    }
+  }
+  
+  printf("[");
+  for (int x = 0; x < size; x++){
+    printf("%s - %s", shuffledLibrary[x]->artist, shuffledLibrary[x]->name);
+    if (x != size - 2) printf(", ");
+  }
+  printf("]\n");
+}
+
 
 void clear(struct song_node * library[27]){
     for(int x = 0; x < 27; x++){
