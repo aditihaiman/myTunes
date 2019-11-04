@@ -206,11 +206,11 @@ int main(){
     printArtist(library, artist);
 
     
-//    printf("\nTesting shuffle:\n\n");
-//    shuffle(library);
-//
+    printf("\nTesting shuffle:\n\n");
+    shuffle(library);
+
     printf("\nClearing Library:\n\n");
     clear(library);
-    //printLibrary(library);
+    printLibrary(library);
     
 }

@@ -65,7 +65,6 @@ void shuffle(struct song_node * library[27]){
             while (length > 0){
                 struct song_node *random = randomNode(current);
                 printf("%s - %s | ", random->name, random->artist);
-                current = remove_val(current, random->name, random->artist);
                 length--;
             }
         }
