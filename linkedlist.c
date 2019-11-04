@@ -97,7 +97,6 @@ int findLen(struct song_node *list){
     return x;
 }
 
-//why does each random print out the same number for all three tests on a run?
 struct song_node * randomNode(struct song_node *list){
     if(list==NULL) {
         printf("list is empty\n");
@@ -105,7 +104,6 @@ struct song_node * randomNode(struct song_node *list){
     }
     int len = findLen(list);
     int random = rand() % len;
-    //printf("printing element %d of list:\n", random);
     while (random > 0){
         list = list->next;
         random--;
