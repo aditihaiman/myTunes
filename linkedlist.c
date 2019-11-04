@@ -17,12 +17,8 @@ void print_list(struct song_node *current) { //DONE
 
 struct song_node * createNode(char newname[], char newartist[]){ //DONE
     struct song_node *new = (struct song_node*)malloc(sizeof(struct song_node));
-    for(int x = 0; x < strlen(newname); x++){
-        new->name[x] = newname[x];
-    }
-    for(int x = 0; x < strlen(newartist); x++){
-        new->artist[x] = newartist[x];
-    }
+    strcpy(new->name, newname);
+    strcpy(new->artist, newartist);
     new->next = NULL;
     return new;
 }
@@ -118,6 +114,7 @@ struct song_node * insertAlphabetical(struct song_node *list, char newname[], ch
     struct song_node *current = list;
     struct song_node *prev = list;
     while(current != NULL && (strcmp(newartist, current->artist)) > 0){
+        //printf("%s, %s\n", current->name, current->artist);
         prev = current;
         current = current->next;
     }
