@@ -51,16 +51,17 @@ struct song_node * remove_val(struct song_node *list, char nme[], char artst[]){
 }
 
 struct song_node * free_list(struct song_node *current) {
-    struct song_node* prev = current;
+    struct song_node* prev;
     while(current != NULL) {
-        printf("freeing: %s\n", current->name);
+        printf("freeing: %s, %s\n", current->name, current->artist);
+        //memcpy(prev, current, sizeof(struct song_node));
         prev = current;
         current = current->next;
         free(prev);
         prev = NULL;
     }
-    free(prev);
-    prev = NULL;
+//    free(prev);
+//    prev = NULL;
     return prev;
 }
 
