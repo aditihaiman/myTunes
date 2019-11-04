@@ -141,9 +141,9 @@ int main(){
 
     
     struct song_node * library[27];
-//    for(int x = 0; x < 27; x++){
-//        library[x] = NULL;
-//    }
+    for(int x = 0; x < 27; x++){
+        library[x] = NULL;
+    }
     struct song_node *new = createNode(name, artist);
     addSong(new, library);
     strcpy(artist, "billy joel");
