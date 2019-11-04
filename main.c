@@ -188,7 +188,7 @@ int main(){
     printf("looking for [billy joel - uptown girl]:\n");
     strcpy(name, "uptown girl");
     find = findSong(library, name, artist);
-    //printf("%s - %s\n", find->artist, find->name);
+    printf("%s - %s\n", find->artist, find->name);
 
     printf("\nTesting findArtist:\n\n");
     printf("looking for [david bowie]:\n");
