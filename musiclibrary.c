@@ -58,7 +58,6 @@ int findSize(struct song_node * library[27]){
 
 void shuffle(struct song_node * library[27]){
     int size = findSize(library);
-    struct song_node *shuffledLibrary = NULL;
     if (size != 0){
         for (int x = 0; x < 27; x++){
             struct song_node *current = library[x];
@@ -71,6 +70,7 @@ void shuffle(struct song_node * library[27]){
             }
         }
     }
+    printf("\n");
 }
 
 
