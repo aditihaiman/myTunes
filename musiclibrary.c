@@ -9,7 +9,6 @@ void addSong(struct song_node *newsong, struct song_node * library[27]){
     int place;
     if (newsong->artist[0] < 97 || newsong->artist[0] > 122) place = 26;
     else place = newsong->artist[0] - 97;
-    printf("%d\n", place);
     library[place] = insertAlphabetical(library[place], newsong->name, newsong->artist);
 }
 
