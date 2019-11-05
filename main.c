@@ -162,6 +162,13 @@ int main(){
     strcpy(name, "suffragete city");
     new = createNode(name, artist);
     addSong(new, library);
+    strcpy(artist, "21 pilots");
+    strcpy(name, "heathens");
+    new = createNode(name, artist);
+    addSong(new, library);
+    strcpy(name, "ride");
+    new = createNode(name, artist);
+    addSong(new, library);
     strcpy(artist, "david byrne");
     strcpy(name, "who");
     new = createNode(name, artist);
